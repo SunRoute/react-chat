@@ -1,3 +1,10 @@
+# Getting started
+
+Setup de variables de entorno
+
+1. Cambia el archivo .env.example a .env
+2. Rellena el archivo .env con los valores de Firebase.
+
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
