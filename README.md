@@ -1,9 +1,17 @@
 # Getting started
 
-Setup de variables de entorno
+## Firestore Database
+
+Para crear una base de datos en Firestore, debes crear y configurar un proyecto en la plataforma de Firebase.
+
+### Setup de variables de entorno
 
 1. Cambia el archivo .env.example a .env
 2. Rellena el archivo .env con los valores de Firebase.
+
+### Dominio autorizado
+
+Al desplegar tu aplicación en Firebase, debes asegurarte de que el dominio autorizado esté añadido a tu proyecto de Firebase.
 
 # React + Vite
 

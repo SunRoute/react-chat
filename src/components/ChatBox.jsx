@@ -9,6 +9,7 @@ import {
 import { db } from "../firebase";
 import Message from "./Message";
 import SendMessage from "./SendMessage";
+
 const ChatBox = () => {
   const [messages, setMessages] = useState([]);
   const scroll = useRef();
@@ -16,7 +17,7 @@ const ChatBox = () => {
     const q = query(
       collection(db, "messages"),
       orderBy("createdAt", "desc"),
-      limit(50)
+      limit(50),
     );
     const unsubscribe = onSnapshot(q, (QuerySnapshot) => {
       const fetchedMessages = [];
@@ -24,12 +25,16 @@ const ChatBox = () => {
         fetchedMessages.push({ ...doc.data(), id: doc.id });
       });
       const sortedMessages = fetchedMessages.sort(
-        (a, b) => a.createdAt - b.createdAt
+        (a, b) => a.createdAt - b.createdAt,
       );
       setMessages(sortedMessages);
     });
     return () => unsubscribe;
   }, []);
+  // Auto-scroll cuando los mensajes cambian
+  useEffect(() => {
+    scroll.current?.scrollIntoView({ behavior: "smooth" });
+  }, [messages]);
   return (
     <main className="chat-box">
       <div className="messages-wrapper">
@@ -44,4 +49,5 @@ scroll div */}
     </main>
   );
 };
+
 export default ChatBox;

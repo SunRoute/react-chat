@@ -6,16 +6,13 @@ import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 
 const NavBar = () => {
   const [user] = useAuthState(auth);
-
   const googleSignIn = () => {
     const provider = new GoogleAuthProvider();
     signInWithPopup(auth, provider);
   };
-
   const signOut = () => {
     auth.signOut();
   };
-
   return (
     <nav className="nav-bar">
       <h1>React Chat</h1>

@@ -8,7 +8,6 @@ const Welcome = () => {
     const provider = new GoogleAuthProvider();
     signInWithPopup(auth, provider);
   };
-
   return (
     <main className="welcome">
       <h2>Welcome to React Chat.</h2>
